@@ -19,3 +19,23 @@ describe('overlaps', function() {
     );
 
 });
+
+describe('includes', function() {
+    test.each([
+        [0, 10, 8, 12, false],
+        [0, 5, -4, 3, false],
+        [0, 5, 1, 3, true],
+        [1, 3, 0, 5, false],
+        [10, 15, 10, 15, true],
+        [1, 10, -5, 15, false],
+        [0, 10, 11, 12, false],
+        [0, 10, -5, -1, false],
+        [0, 10, 10, 15, false],
+        [10, 10, 10, 10, true]
+    ])
+    ('[%i,%i] includes [%i,%i] verify %p', (s1,e1,s2,e2 , expected) => {
+        expect(new Interval(s1,e1).includes(new Interval(s2,e2))).toBe(expected);
+    }
+    );
+
+});
