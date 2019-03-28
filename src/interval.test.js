@@ -59,3 +59,25 @@ describe('Union', function() {
     );
 
 });
+
+describe('Intersection', function() {
+    test.each([
+        [0, 10, 8, 12, new Interval(8,10)],
+        [0, 5, -4, 3, new Interval(0,3)],
+        [0, 5, 1, 3, new Interval(1,3)],
+        [1, 3, 0, 5, new Interval(1,3)],
+        [10, 15, 10, 15, new Interval(10,15)],
+        [1, 10, -5, 15, new Interval(1,10)],
+        [0, 10, 11, 12, null],
+        [0, 10, -5, -1, null],
+        [0, 10, 10, 15, new Interval(10,10)],
+        [10, 10, 10, 10, new Interval(10,10)]
+    ])
+    ('Intersection between [%i,%i] and [%i,%i] verify %p', (s1,e1,s2,e2 , expected) => {
+            expect(new Interval(s1,e1).intersection(new Interval(s2,e2))).toEqual(expected);
+        
+       
+    }
+    );
+
+});
