@@ -74,7 +74,7 @@ class Interval {
      *
      * Exemple 1 :
      *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-     *      interval2 =                       ▓▓▓▓▓▓▓▓▓▓▓▓▓                        ▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                              ▓▓▓▓▓▓▓▓▓▓▓▓▓
      *      interval1.intersection(interval2) =>                     ▒▒▒▒▒
      *
      * Exemple 2 :
@@ -117,8 +117,15 @@ class Interval {
      * @param {Interval} interval
      * @returns {Interval[]}
      */
-    exclusion(interval) {
-
+    exclusion(interval) {        
+        if(this.start == interval.start && this.end == interval.end) {
+            return [];
+        }
+        var inter = this.intersection(interval);
+        if(inter!=null) {
+            return [new Interval(Math.min(this.start,interval.start),inter.start),new Interval(inter.end,Math.max(this.end,interval.end))];
+        }
+        return [this,interval];
     };
 }
 
