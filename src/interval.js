@@ -1,5 +1,8 @@
 class Interval {
     constructor(start, end) {
+        if(start > end) {
+            throw 'Impossible to create Interval with end<start'
+        }
         this.start = start;
         this.end = end
     }
