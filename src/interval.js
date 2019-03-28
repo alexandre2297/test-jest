@@ -63,7 +63,10 @@ class Interval {
      * @returns {Interval[]}
      */
     union(interval) {
-
+        if((this.end >= interval.start && this.start <= interval.end)) { 
+            return [new Interval(Math.min(interval.start,this.start),Math.max(interval.end,this.end))];
+        }
+        return [interval,this];
     };
 
     /**
