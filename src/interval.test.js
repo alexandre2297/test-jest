@@ -98,3 +98,9 @@ describe('Exclusion', function() {
     }
     );
 });
+
+describe('Constructor Interval', function() {
+    test('Interval with end<start exception', () => {
+        expect(()=> (new Interval(3,0))).toThrow();
+    });
+});
