@@ -74,7 +74,7 @@ class Interval {
      *
      * Exemple 1 :
      *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-     *      interval2 =                                              ▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                       ▓▓▓▓▓▓▓▓▓▓▓▓▓                        ▓▓▓▓▓▓▓▓▓▓▓▓▓
      *      interval1.intersection(interval2) =>                     ▒▒▒▒▒
      *
      * Exemple 2 :
@@ -85,8 +85,20 @@ class Interval {
      * @param {Interval} interval
      * @returns {Interval|null}
      */
-    intersection(interval) {
-
+    intersection(interval) {     
+        var list1 = [];
+        var list2 = [];
+        for (var i = this.start; i <= this.end; i++) {
+            list1.push(i);
+        }
+        for (var i = interval.start; i <= interval.end; i++) {
+            list2.push(i);
+        }
+        var list3 = list1.filter(value => list2.includes(value))
+        if(list3.length!=0) {
+            return new Interval(list3[0],list3[list3.length-1])
+        }
+        return null;
     };
 
     /**
