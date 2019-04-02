@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test.coverage": "jest --coverage"
   },
   "jest": {
     "verbose": true,
@@ -31,6 +32,11 @@
   },
   "homepage": "https://github.com/Kirouane/test-tp#readme",
   "devDependencies": {
+    "@stryker-mutator/core": "^1.1.1",
+    "@stryker-mutator/html-reporter": "^1.1.1",
+    "@stryker-mutator/javascript-mutator": "^1.1.1",
+    "@stryker-mutator/jest-runner": "^1.1.1",
+    "@stryker-mutator/webpack-transpiler": "^1.1.1",
     "jest": "^24.1.0"
   }
 }

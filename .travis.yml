@@ -8,3 +8,4 @@ before_install:
 script:
   - npm run test
   - node node_modules/.bin/jest --coverage
+  - stryker run
