@@ -4,6 +4,7 @@ node_js:
 
 before_install:
   - npm install
+  - npm install lowdb
 
 script:
   - npm run test
