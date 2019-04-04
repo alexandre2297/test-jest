@@ -63,3 +63,29 @@ describe('Book repository TotalPrice', function () {
         expect(dbMock.reduce.mock.results[0].value).toBe(3087.6);
     });
 });
+
+describe('Book repository findByName', function () {
+    
+    test('get book by name', () => {
+
+        const dbMock = {
+            get : jest.fn(),
+            find : jest.fn(),
+            value : jest.fn()
+        };
+        var book = {
+            "id": 1,
+            "name": "azd5ss",
+            "price": 7.99,
+            "added_at": "2017-07-28T16:44:21.331Z"
+        };
+        dbMock.get.mockReturnValue(dbMock);
+        dbMock.find.mockReturnValue(dbMock);
+        dbMock.value.mockReturnValue(book);
+
+        const repository = new BookRepository(dbMock);
+        repository.getBookByName("azd5ss");
+
+        expect(dbMock.value.mock.results[0].value).toBe(book);
+    });
+});
