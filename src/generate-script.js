@@ -7,7 +7,7 @@ function randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
 
-Array(10000).fill().forEach((_, i) => {
+Array(1000).fill().forEach((_, i) => {
     repository.save({
         id : i,
         name: Math.random().toString(36).substring(7),

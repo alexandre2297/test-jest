@@ -28,7 +28,11 @@ class BookRepository {
      * Somme du prix de tous les livre
      */
     getTotalPrice() {
-
+        return this.db
+                   .get('books')
+                   .map('price')
+                   .value()
+                   .reduce((a,b) => a+b);
     }
 
 
@@ -36,7 +40,9 @@ class BookRepository {
      * Retourne un livre
      */
     getBookByName(bookName) {
-
+        return this.db
+                   .get('books')
+                   .find( {name : bookName});
     }
 
     /**
