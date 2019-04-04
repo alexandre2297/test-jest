@@ -5,3 +5,4 @@ const repository = new BookRepository(db);
 
 console.log("Count books :" + repository.getTotalCount());
 console.log("Total price :" + repository.getTotalPrice());
+console.log(repository.getBookByName("qicn7n"));
