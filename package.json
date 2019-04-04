@@ -14,9 +14,9 @@
     "verbose": true,
     "coverageThreshold": {
       "global": {
-        "branches": 95,
-        "functions": 80,
-        "lines": 95,
+        "branches": 90,
+        "functions": 55,
+        "lines": 70,
         "statements": -10
       }
     }
@@ -38,5 +38,8 @@
     "@stryker-mutator/jest-runner": "^1.1.1",
     "@stryker-mutator/webpack-transpiler": "^1.1.1",
     "jest": "^24.1.0"
+  },
+  "dependencies": {
+    "lowdb": "^1.0.0"
   }
 }
